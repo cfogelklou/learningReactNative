@@ -5,7 +5,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  TextInput,
+  TextInput,  
   View
 } from 'react-native';
 
@@ -15,7 +15,8 @@ module.exports = React.createClass({
     getInitialState() {
         return {
             username: '',
-            password: ''
+            password: '',
+            errorMessage: '',
         }
     },
     render() {
@@ -41,6 +42,7 @@ module.exports = React.createClass({
             onChangeText={(text)=>this.setState({password:text})}
             />
             
+            <Text style={styles.label}>{this.state.errorMessage}</Text>
             <Button text={'Sign In'} onPress={this.onPress} />
             
             </View>
@@ -49,7 +51,16 @@ module.exports = React.createClass({
     onPress(){
         // Log the user in.
         console.log("onPress()!");
-        this.setState({password: ''});
+
+        // TODO, do login here!!!
+        
+        // This is where the parse stuff would go, but we are skipping over that for now.
+        if (this.state.password == "password1927") {
+            this.setState({ errorMessage: ''});
+        }
+        else {
+            this.setState({ errorMessage: 'wrong password'});
+        }
     }
 });
 

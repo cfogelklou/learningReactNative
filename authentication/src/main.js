@@ -5,17 +5,34 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator
 } from 'react-native';
 
 var Signin = require('./components/authentication/signin');
+var Signup = require('./components/authentication/signup');
+const ROUTES = {
+    signin: Signin, // Refer to Signin component
+    signup: Signup
+};
 
 module.exports = React.createClass({
+    componentWillMount() {
+        // This is where parse was initialized.
+    },
+    renderScene(route, navigator) {
+        // route, at first, will be the object with name signin.
+        // Whatever we return from this function will be what is pushed onto the stack.
+        var Component = ROUTES[route.name];
+        return <Component />;
+    },
     render() {
         return (
-            <View style={styles.container}>
-                <Signin />
-            </View>
+            <Navigator style={styles.container}
+            initialRoute = {{name: 'signup'}}
+            renderScene = {this.renderScene}
+            configureScene = {() => { return Navigator.SceneConfigs.FloatFromRight; } }
+            />
         )
 
     }
@@ -24,7 +41,5 @@ module.exports = React.createClass({
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
     }
 });
