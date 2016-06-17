@@ -24,7 +24,7 @@ module.exports = React.createClass({
         // route, at first, will be the object with name signin.
         // Whatever we return from this function will be what is pushed onto the stack.
         var Component = ROUTES[route.name];
-        return <Component />;
+        return <Component route={route} navigator={navigator} />;
     },
     render() {
         return (

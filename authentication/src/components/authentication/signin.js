@@ -44,6 +44,7 @@ module.exports = React.createClass({
             
             <Text style={styles.label}>{this.state.errorMessage}</Text>
             <Button text={'Sign In'} onPress={this.onPress} />
+            <Button text={'In need an account...'} onPress={this.onSignupPress} />
             
             </View>
         )
@@ -61,6 +62,13 @@ module.exports = React.createClass({
         else {
             this.setState({ errorMessage: 'wrong password'});
         }
+    },
+    onSignupPress(){
+        // Navigate over to signup
+        //ideal == navigator.push('signup');
+        // this.props.navigator gets SET by the main.js renderScene() call, it is set in 
+        //   return <Component route={route} navigator={navigator} />;
+        this.props.navigator.push({name: 'signup'});
     }
 });
 
