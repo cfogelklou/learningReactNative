@@ -1,3 +1,5 @@
+'use strict';
+
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -6,11 +8,13 @@ import {
   View
 } from 'react-native';
 
+var Signin = require('./components/authentication/signin');
+
 module.exports = React.createClass({
     render() {
         return (
             <View style={styles.container}>
-                <Text>I am on both iOS and Android!</Text>
+                <Signin />
             </View>
         )
 
@@ -24,4 +28,3 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 });
-
