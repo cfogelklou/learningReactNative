@@ -2,19 +2,20 @@
 
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight
+    StyleSheet,
+    Text,
+    View,
+    TouchableHighlight
 } from 'react-native';
 
 module.exports = React.createClass({
-    render(){
+    render() {
         return (
             <TouchableHighlight style={styles.button}
-            underlayColor={'gray'}
-            onPress={this.props.onPress}>
-            <Text style={styles.buttonText}>{this.props.text}</Text>
+                underlayColor={'gray'}
+                onPress={this.props.onPress}
+                >
+                <Text style={styles.buttonText}>{this.props.text}</Text>
             </TouchableHighlight>
         )
     }
@@ -23,7 +24,7 @@ module.exports = React.createClass({
 const styles = StyleSheet.create({
     button: {
         justifyContent: 'center',
-        alignItems: 'center', 
+        alignItems: 'center',
         borderWidth: 1,
         borderRadius: 5,
         padding: 5,
