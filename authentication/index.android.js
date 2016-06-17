@@ -12,6 +12,8 @@ import {
   View
 } from 'react-native';
 
+//ssh chris@192.168.163.129
+
 class authentication extends Component {
   render() {
     return (
