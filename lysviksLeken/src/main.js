@@ -201,6 +201,19 @@ class lysviksLeken extends Component {
 
   onAssignmentPress(){
     console.log("On assignment press")
+    //this.setState({
+      //isCharade: true
+    //})
+
+    const len = assignments.length;
+    const idx = Math.floor(Math.random() * len);
+    const assignment = assignments[idx];
+    const isACharade = (0 == assignment.localeCompare(assignments[0]));
+    this.setState({
+      currentAssignment: assignment,
+      isCharade: isACharade,
+      charadeCountdown: (isACharade) ? 10 : 0
+    });
   }
 
   charadeButton() {
