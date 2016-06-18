@@ -17,6 +17,15 @@ import {
 const mooseImg = require('../res/moose.jpg');
 
 class lysviksLeken extends Component {
+  constructor(props) {
+        super(props);
+        this.state = {
+            charadeCountdown: 10,
+            isCharade: false,
+            currentAssignment: 'Press a button...'
+        }
+    }  
+
   render() {
     return (
       <View style={styles.container}>
@@ -42,7 +51,7 @@ class lysviksLeken extends Component {
   }
 
   assignmentArea(){
-    return (<Text>ToDo!</Text>);
+    return (<Text>{this.state.currentAssignment}</Text>);
   }
       //onPress={this.handleStartPress}
   //const style = this.state.running ? styles.stopButton : styles.startButton;
@@ -111,7 +120,9 @@ const styles = StyleSheet.create({
     flex: 3,
     borderWidth: 1,
     borderColor: 'blue',
-    alignSelf: 'stretch'
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 
   dummy: {
