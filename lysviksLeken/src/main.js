@@ -190,17 +190,26 @@ class lysviksLeken extends Component {
       if (this.state.charadeCountdown > 0) {
         return (
           <View style={styles.assignmentStyle}>
-            <Text style={styles.assignmentTextStyle}>{this.state.currentCharade}</Text>
-            <Text style={styles.countdownTextStyle}>...{Math.floor(this.state.charadeCountdown/1000)}...</Text>
+            <Text style={styles.assignmentTextStyle}>
+              {this.state.currentCharade}
+            </Text>
+            <Text style={styles.countdownTextStyle}>
+              ...{Math.floor(this.state.charadeCountdown / 1000) }...
+            </Text>
           </View>
-          );
+        );
       }
       else {
-        return <Text>Trycka på knappen för att visa charaden.</Text>
+        return <Text style={styles.assignmentTextStyle}>
+          Trycka på knappen för att visa charaden.
+        </Text>
       }
     }
     else {
-      return (<Text>{this.state.currentAssignment}</Text>);
+      return (
+        <Text style={styles.assignmentTextStyle}>
+          {this.state.currentAssignment}
+        </Text>);
     }
   }
 
@@ -249,7 +258,7 @@ class lysviksLeken extends Component {
     else {
       return <Text></Text>
     }
-  }  
+  }
 
   onCharadePress() {
     console.log("On charade press");
@@ -260,7 +269,7 @@ class lysviksLeken extends Component {
       });
       this.interval = setInterval(() => {
         const currentTime = new Date();
-        const timeElapsed = currentTime - this.state.lastTick;        
+        const timeElapsed = currentTime - this.state.lastTick;
         this.setState({
           charadeCountdown: this.state.charadeCountdown - timeElapsed,
           lastTick: currentTime
@@ -279,9 +288,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   mooseArea: {
-    flex: 2,
-    borderWidth: 1,
-    borderColor: 'black',
+    flex: 3,
+    //borderWidth: 1,
+    //borderColor: 'black',
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -293,8 +302,8 @@ const styles = StyleSheet.create({
     flex: 2,
     justifyContent: 'space-around',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'green',
+    //borderWidth: 1,
+    //borderColor: 'green',
     alignSelf: 'stretch'
   },
   button: {
@@ -312,20 +321,20 @@ const styles = StyleSheet.create({
   },
   whatToDoArea: {
     flex: 3,
-    borderWidth: 1,
-    borderColor: 'blue',
+    //borderWidth: 1,
+    //borderColor: 'blue',
     alignSelf: 'stretch',
     justifyContent: 'center',
     alignItems: 'center'
   },
-  assignmentTextStyle:{
-    fontSize:20,
+  assignmentTextStyle: {
+    fontSize: 16,
   },
-  countdownTextStyle:{
-    fontSize:16,
+  countdownTextStyle: {
+    fontSize: 16,
   },
-  buttonText:{
-    fontSize:20
+  buttonText: {
+    fontSize: 20
   },
   dummy: {
 
