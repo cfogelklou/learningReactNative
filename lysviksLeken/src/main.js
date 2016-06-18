@@ -21,32 +21,54 @@ class lysviksLeken extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.mooseArea}>
-          <Image
-            style={styles.moosePic}
-            source={mooseImg}
-            />
+          {this.moosePic()}
         </View>
         <View style={styles.buttonWrapper}>
-          {this.charadeButton()}
+          {this.assignmentButton()}
           {this.charadeButton()}
         </View>
         <View style={styles.whatToDoArea}>
-          <Text>ToDo!</Text>
+          {this.assignmentArea()}
         </View>
       </View>
     );
   }
+
+  moosePic(){
+    return (<Image
+            style={styles.moosePic}
+            source={mooseImg}
+            />);
+  }
+
+  assignmentArea(){
+    return (<Text>ToDo!</Text>);
+  }
       //onPress={this.handleStartPress}
   //const style = this.state.running ? styles.stopButton : styles.startButton;
-  charadeButton() {
+  //this.state.running ? styles.stopButton : styles.startButton;
+  assignmentButton() {
+    const style = styles.dummy; 
     return <TouchableHighlight
       underlayColor="gray"
-      style={[styles.button]}>
+      style={[styles.button, style]}>
       <Text>
-        'assignment'
+        assignment
       </Text>
     </TouchableHighlight>
   }
+
+  charadeButton() {
+    const style = styles.dummy; 
+    return <TouchableHighlight
+      underlayColor="gray"
+      style={[styles.button, style]}>
+      <Text>
+        charade
+      </Text>
+    </TouchableHighlight>
+  }
+  
 }
 
 const styles = StyleSheet.create({
@@ -57,36 +79,43 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   mooseArea: {
-    flex: 1,
+    flex: 2,
     borderWidth: 1,
-    borderColor: 'black'
-  },
-  buttonWrapper: {
-    flex: 3,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'green'
-  },
-  button: {
-    borderWidth: 2,
-    height: 100,
-    width: 100,
-    borderRadius: 50,
+    borderColor: 'black',
     justifyContent: 'center',
-    alignItems: 'center'
-  },
-  whatToDoArea: {
-    flex: 3,
-    borderWidth: 1,
-    borderColor: 'blue'
+    alignItems: 'center'    
   },
   moosePic: {
     flex: 1,
     //padding: 10,
     alignSelf: 'center',
     //opacity: 0.2
+  },  
+  buttonWrapper: {
+    flex: 2,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'green',
+    alignSelf: 'stretch'
+  },
+  button: {
+    height: 50,
+    alignSelf: 'stretch',
+    backgroundColor: '#48BBEC',
+    marginTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  whatToDoArea: {
+    flex: 3,
+    borderWidth: 1,
+    borderColor: 'blue',
+    alignSelf: 'stretch'
+  },
+
+  dummy: {
+
   }
 });
 
