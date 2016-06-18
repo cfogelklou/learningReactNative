@@ -17,221 +17,259 @@ import {
 const mooseImg = require('../res/moose.jpg');
 
 const assignments = [
-            "CHARADER",
-            "CHARADER",
-            "Tumme mäster",
-            "Sjung",
-            "Rimma",
-            "Rimma",
-            "Regel",
-            "Saga",
-            "Saga",
-            "Ämne",
-            "Ämne"
+  "CHARADER",
+  "CHARADER",
+  "Tumme mäster",
+  "Sjung",
+  "Rimma",
+  "Rimma",
+  "Regel",
+  "Saga",
+  "Saga",
+  "Ämne",
+  "Ämne"
 ];
 
 const charades = [
-            "Spela fotboll",
-            "Basket",
-            "Hockey",
-            "giraff äter löv",
-            "lejon",
-            "katt leker med garn",
-            "elefant rädd för en mus",
-            "ko",
-            "mus",
-            "gorilla",
-            "häst",
-            "kanin",
-            "apa",
-            "hund",
-            "fisk",
-            "haj",
-            "ambulance",
-            "Sparka tegelstenar",
-            "Solglasögon",
-            "Mygga",
-            "Sax",
-            "Klippa gräss",
-            "Klippa häcken",
-            "Stjärna",
-            "Rymdskepp",
-            "Träd",
-            "Flygplan",
-            "Svans",
-            "Basketboll",
-            "Toalett",
-            "Telefon",
-            "Burk",
-            "Trumma",
-            "Spela gitarr",
-            "Spela triangel",
-            "Sköldpadda",
-            "vingar",
-            "Docka",
-            "Fågel",
-            "Spindel",
-            "Barn",
-            "Gris",
-            "Krita",
-            "Ärm",
-            "Kanin",
-            "Kamera",
-            "Sten",
-            "Kyckling",
-            "Robot",
-            "Dryck",
-            "Ballong",
-            "Känguru",
-            "Tandborste",
-            "Dörr",
-            "Alligator",
-            "Dansa",
-            "Hoppa",
-            "Mygga",
-            "Polis",
-            "Nypa",
-            "Sova",
-            "Sova som Pippi",
-            "Titta på teve",
-            "Arg mamma",
-            "Åka skidor",
-            "Ramla från cyckeln",
-            "Cykla",
-            "Åka skridskor",
-            "Simma",
-            "Leka med iPad",
-            "Såga ner träd",
-            "Häst",
-            "Spela Matts' Hockey Spel",
-            "Spela video spel",
-            "Dansa runt julgran",
-            "Bebis",
-            "Groda",
-            "T-Rex",
-            "Äta en sur äpple",
-            "Tända ljus",
-            "Brandbil",
-            "Brandmän",
-            "Darth Vader",
-            "Yoda",
-            "Hulk",
-            "Boxning",
-            "Går med hunden",
-            "Duscha",
-            "Bada",
-            "Vattna blommorna",
-            "Måla",
-            "Demonstrant",
-            "Programmerar appar",
-            "Astronaut",
-            "Präst",
-            "Spela pianot",
-            "Paddla kanot",
-            "Trumpet",
-            "Fiol",
-            "Skateboard",
-            "Anka",
-            "Mata ankarna",
-            "Pirater",
-            "Grilla",
-            "Fiska",
-            "Morfar",
-            "Mormor",
-            "Kalle spelar fotboll",
-            "Hund",
-            "Flygande orm",
-            "Leopard",
-            "Flygande ekorre",
-            "Indominous Rex"  
+  "Spela fotboll",
+  "Basket",
+  "Hockey",
+  "giraff äter löv",
+  "lejon",
+  "katt leker med garn",
+  "elefant rädd för en mus",
+  "ko",
+  "mus",
+  "gorilla",
+  "häst",
+  "kanin",
+  "apa",
+  "hund",
+  "fisk",
+  "haj",
+  "ambulance",
+  "Sparka tegelstenar",
+  "Solglasögon",
+  "Mygga",
+  "Sax",
+  "Klippa gräss",
+  "Klippa häcken",
+  "Stjärna",
+  "Rymdskepp",
+  "Träd",
+  "Flygplan",
+  "Svans",
+  "Basketboll",
+  "Toalett",
+  "Telefon",
+  "Burk",
+  "Trumma",
+  "Spela gitarr",
+  "Spela triangel",
+  "Sköldpadda",
+  "vingar",
+  "Docka",
+  "Fågel",
+  "Spindel",
+  "Barn",
+  "Gris",
+  "Krita",
+  "Ärm",
+  "Kanin",
+  "Kamera",
+  "Sten",
+  "Kyckling",
+  "Robot",
+  "Dryck",
+  "Ballong",
+  "Känguru",
+  "Tandborste",
+  "Dörr",
+  "Alligator",
+  "Dansa",
+  "Hoppa",
+  "Mygga",
+  "Polis",
+  "Nypa",
+  "Sova",
+  "Sova som Pippi",
+  "Titta på teve",
+  "Arg mamma",
+  "Åka skidor",
+  "Ramla från cyckeln",
+  "Cykla",
+  "Åka skridskor",
+  "Simma",
+  "Leka med iPad",
+  "Såga ner träd",
+  "Häst",
+  "Spela Matts' Hockey Spel",
+  "Spela video spel",
+  "Dansa runt julgran",
+  "Bebis",
+  "Groda",
+  "T-Rex",
+  "Äta en sur äpple",
+  "Tända ljus",
+  "Brandbil",
+  "Brandmän",
+  "Darth Vader",
+  "Yoda",
+  "Hulk",
+  "Boxning",
+  "Går med hunden",
+  "Duscha",
+  "Bada",
+  "Vattna blommorna",
+  "Måla",
+  "Demonstrant",
+  "Programmerar appar",
+  "Astronaut",
+  "Präst",
+  "Spela pianot",
+  "Paddla kanot",
+  "Trumpet",
+  "Fiol",
+  "Skateboard",
+  "Anka",
+  "Mata ankarna",
+  "Pirater",
+  "Grilla",
+  "Fiska",
+  "Morfar",
+  "Mormor",
+  "Kalle spelar fotboll",
+  "Hund",
+  "Flygande orm",
+  "Leopard",
+  "Flygande ekorre",
+  "Indominous Rex"
 ];
 
 class lysviksLeken extends Component {
 
   constructor(props) {
-        super(props);
-        this.state = {
-            charadeCountdown: 10,
-            isCharade: false,
-            currentAssignment: 'Press a button...'
-        }
-    }  
+    super(props);
+    this.state = {
+      charadeCountdown: 10,
+      isCharade: true,
+      currentAssignment: 'Press a button...',
+      currentCharade: ''
+    }
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.mooseArea}>
-          {this.moosePic()}
+          {this.moosePic() }
         </View>
         <View style={styles.buttonWrapper}>
-          {this.assignmentButton()}
-          {this.charadeButton()}
+          {this.assignmentButton() }
+          {this.charadeButton() }
         </View>
         <View style={styles.whatToDoArea}>
-          {this.assignmentArea()}
+          {this.assignmentArea() }
         </View>
       </View>
     );
   }
 
-  moosePic(){
+  moosePic() {
     return (<Image
-            style={styles.moosePic}
-            source={mooseImg}
-            />);
+      style={styles.moosePic}
+      source={mooseImg}
+      />);
   }
 
-  assignmentArea(){
-    return (<Text>{this.state.currentAssignment}</Text>);
+  assignmentArea() {
+    if (this.state.isCharade) {
+      if (this.state.charadeCountdown > 0) {
+        return <Text>{this.state.currentCharade}</Text>
+      }
+      else {
+        return <Text>Trycka på "charade" knappen för att visa charaden.</Text>
+      }
+    }
+    else {
+      return (<Text>{this.state.currentAssignment}</Text>);
+    }
   }
-      //onPress={this.handleStartPress}
+  //onPress={this.handleStartPress}
   //const style = this.state.running ? styles.stopButton : styles.startButton;
   //this.state.running ? styles.stopButton : styles.startButton;
   assignmentButton() {
-    const style = styles.dummy; 
+    const style = styles.dummy;
     return <TouchableHighlight
       underlayColor="gray"
       style={[styles.button, style]}
-      onPress={this.onAssignmentPress.bind(this)}>
+      onPress={this.onAssignmentPress.bind(this) }>
       <Text>
         assignment
       </Text>
     </TouchableHighlight>
   }
 
-  onAssignmentPress(){
-    console.log("On assignment press")
-    //this.setState({
-      //isCharade: true
-    //})
-
-    const len = assignments.length;
-    const idx = Math.floor(Math.random() * len);
-    const assignment = assignments[idx];
+  onAssignmentPress() {
+    console.log("On assignment press");
+    const assidx = Math.floor(Math.random() * assignments.length);
+    const assignment = assignments[assidx];
     const isACharade = (0 == assignment.localeCompare(assignments[0]));
+    const charadeIdx = Math.floor(Math.random() * charades.length);
+    const charade = charades[charadeIdx];
+    const theCurrentCharade = charade;
     this.setState({
       currentAssignment: assignment,
+      charadeCountdown: 0,
       isCharade: isACharade,
-      charadeCountdown: (isACharade) ? 10 : 0
+      currentCharade: theCurrentCharade
     });
   }
 
+  charadeButton2() {
+    const style = styles.dummy;
+    if (this.state.isCharade) {
+      return (<TouchableHighlight
+        underlayColor="gray"
+        style={[styles.button, style]}
+        onPress={this.onCharadePress.bind(this) }>
+        >
+        <Text>
+          Show me the charade!
+        </Text>
+      </TouchableHighlight>);
+    }
+    else {
+      return '';
+    }
+  }
+
   charadeButton() {
-    const style = styles.dummy; 
-    if (this.state.isCharade){
+    const style = styles.dummy;
     return <TouchableHighlight
       underlayColor="gray"
-      style={[styles.button, style]}>
+      style={[styles.button, style]}
+      onPress={this.onCharadePress.bind(this) }>
       <Text>
         charade
       </Text>
     </TouchableHighlight>
-    }
-    else {
-      return ;
+  }  
+
+  onCharadePress() {
+    console.log("On charade press");
+    if (this.state.isCharade) {
+      this.setState({
+        charadeCountdown: 10
+      });
+      this.interval = setInterval(() => {
+        this.setState({
+          charadeCountdown: this.state.charadeCountdown - 1
+        })
+      }, 1000);
     }
   }
-  
+
 }
 
 const styles = StyleSheet.create({
@@ -246,14 +284,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     justifyContent: 'center',
-    alignItems: 'center'    
+    alignItems: 'center'
   },
   moosePic: {
     flex: 1,
     //padding: 10,
     alignSelf: 'center',
     //opacity: 0.2
-  },  
+  },
   buttonWrapper: {
     flex: 2,
     justifyContent: 'space-around',
