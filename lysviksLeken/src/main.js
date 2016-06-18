@@ -151,7 +151,7 @@ class lysviksLeken extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      charadeCountdown: 10,
+      charadeCountdown: 0,
       isCharade: true,
       currentAssignment: 'Press a button...',
       currentCharade: ''
@@ -182,10 +182,12 @@ class lysviksLeken extends Component {
       />);
   }
 
+  //        return <Text>{this.state.currentCharade}</Text>
+
   assignmentArea() {
     if (this.state.isCharade) {
       if (this.state.charadeCountdown > 0) {
-        return <Text>{this.state.currentCharade}</Text>
+        return <Text>Charade: '{this.state.currentCharade}'... {this.state.charadeCountdown}</Text>
       }
       else {
         return <Text>Trycka på "charade" knappen för att visa charaden.</Text>
@@ -212,12 +214,13 @@ class lysviksLeken extends Component {
 
   onAssignmentPress() {
     console.log("On assignment press");
-    const assidx = Math.floor(Math.random() * assignments.length);
+    const assidx = 0;//Math.floor(Math.random() * assignments.length);
     const assignment = assignments[assidx];
     const isACharade = (0 == assignment.localeCompare(assignments[0]));
     const charadeIdx = Math.floor(Math.random() * charades.length);
     const charade = charades[charadeIdx];
     const theCurrentCharade = charade;
+    console.log("Current charade = " + theCurrentCharade);
     this.setState({
       currentAssignment: assignment,
       charadeCountdown: 0,
@@ -246,14 +249,19 @@ class lysviksLeken extends Component {
 
   charadeButton() {
     const style = styles.dummy;
-    return <TouchableHighlight
-      underlayColor="gray"
-      style={[styles.button, style]}
-      onPress={this.onCharadePress.bind(this) }>
-      <Text>
-        charade
-      </Text>
-    </TouchableHighlight>
+    if (this.state.isCharade) {
+      return <TouchableHighlight
+        underlayColor="gray"
+        style={[styles.button, style]}
+        onPress={this.onCharadePress.bind(this) }>
+        <Text>
+          charade
+        </Text>
+      </TouchableHighlight>
+    }
+    else {
+      return <Text></Text>
+    }
   }  
 
   onCharadePress() {
