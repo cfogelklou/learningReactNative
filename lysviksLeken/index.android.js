@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 */
-//ssh chris@192.168.163.129
+//ssh chris@192.168.125.128
 
 'use strict';
 
