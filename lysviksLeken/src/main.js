@@ -19,14 +19,11 @@ const mooseImg = require('../res/moose.jpg');
 const assignments = [
   "CHARADER",
   "CHARADER",
-  "Tumme mäster",
+  "Tumme mästare",
   "Sjung",
-  "Rimma",
   "Rimma",
   "Regel",
   "Saga",
-  "Saga",
-  "Ämne",
   "Ämne"
 ];
 
@@ -268,7 +265,7 @@ class lysviksLeken extends Component {
         charadeCountdown: 10000,
         lastTick: new Date()
       });
-      
+
       if (!countdownRunning){
         this.interval = setInterval(() => {
           const currentTime = new Date();
