@@ -15,7 +15,7 @@ import {
 var formatTime = require('minutes-seconds-milliseconds');
 
 var StopWatch = React.createClass({
-  
+
   // AUTOMATICALLY CALLED!
   // Sets up the initial state of the StopWatch class.
   getInitialState() {
@@ -31,22 +31,23 @@ var StopWatch = React.createClass({
   // AUTOMATICALLY CALLED!
   // renders the entire view based on current state.
   render() {
-    return (<View style={styles.container}>
-      <View style={[styles.header]}>
-        <View style={[styles.timerWrapper]}>
-          <Text style={styles.timer}>
-            {formatTime(this.state.timeElapsed) }
-          </Text>
+    return (
+      <View style={styles.container}>
+        <View style={[styles.header]}>
+          <View style={[styles.timerWrapper]}>
+            <Text style={styles.timer}>
+              {formatTime(this.state.timeElapsed) }
+            </Text>
+          </View>
+          <View style={[styles.buttonWrapper]}>
+            {this.startStopButton() }
+            {this.lapButton() }
+          </View>
         </View>
-        <View style={[styles.buttonWrapper]}>
-          {this.startStopButton() }
-          {this.lapButton() }
+        <View style={[styles.footer]}>
+          {this.laps() }
         </View>
       </View>
-      <View style={[styles.footer]}>
-        {this.laps()}
-      </View>
-    </View>
     );
   },
 
@@ -57,13 +58,13 @@ var StopWatch = React.createClass({
     // - and the array index
     // 
     //return this.state.laps.map(function(time, index){
-      return this.state.laps.map((time, index) => {
+    return this.state.laps.map((time, index) => {
       return <View style={styles.lap}>
         <Text style={styles.lapText}>
           Lap #{index + 1}
         </Text>
         <Text style={styles.lapText}>
-        {formatTime(time)}
+          {formatTime(time) }
         </Text>
       </View>
     });
@@ -71,7 +72,7 @@ var StopWatch = React.createClass({
 
   // Renders the startStopButton
   startStopButton() {
-    const  style = this.state.running ? styles.stopButton : styles.startButton;
+    const style = this.state.running ? styles.stopButton : styles.startButton;
     return <TouchableHighlight
       underlayColor="gray"
       onPress={this.handleStartPress}
@@ -96,27 +97,27 @@ var StopWatch = React.createClass({
   },
 
   // Handles the lap button being pressed.
-  handleLapPress(){
+  handleLapPress() {
     var lap = this.state.timeElapsed;
     this.setState({
       startTime: new Date(),
       laps: this.state.laps.concat([lap]) // Never want to change state directly!
-        // The concat returns a completely new array. 
+      // The concat returns a completely new array. 
     });
   },
 
   // Handles the start button being pressed.
   handleStartPress() {
-    if (this.state.running){// is the timer running ? )
+    if (this.state.running) {// is the timer running ? )
       clearInterval(this.interval);
-      this.setState({running: false});
+      this.setState({ running: false });
       return;
     }
-    
+
     var startTime = new Date();
 
     // setState will cause a re-render in react!
-    this.setState({startTime: new Date()});
+    this.setState({ startTime: new Date() });
 
     // Always use setState to change state, never by setting values directly.
 
@@ -178,7 +179,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Helvetica',
     fontSize: 30
   }
-  
+
 });
 
 // Our top-level app is "StopWatch"
