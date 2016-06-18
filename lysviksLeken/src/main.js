@@ -188,7 +188,12 @@ class lysviksLeken extends Component {
   assignmentArea() {
     if (this.state.isCharade) {
       if (this.state.charadeCountdown > 0) {
-        return <Text>{this.state.currentCharade}... {Math.floor(this.state.charadeCountdown/1000)}</Text>
+        return (
+          <View style={styles.assignmentStyle}>
+            <Text>{this.state.currentCharade}</Text>
+            <Text>...{Math.floor(this.state.charadeCountdown/1000)}...</Text>
+          </View>
+          );
       }
       else {
         return <Text>Trycka på knappen för att visa charaden.</Text>
@@ -206,7 +211,7 @@ class lysviksLeken extends Component {
       underlayColor="gray"
       style={[styles.button, style]}
       onPress={this.onAssignmentPress.bind(this) }>
-      <Text>
+      <Text style={styles.buttonText}>
         Ge Mig en Uppdrag...
       </Text>
     </TouchableHighlight>
@@ -236,7 +241,7 @@ class lysviksLeken extends Component {
         underlayColor="gray"
         style={[styles.button, style]}
         onPress={this.onCharadePress.bind(this) }>
-        <Text>
+        <Text style={styles.buttonText} >
           Visa Charaden
         </Text>
       </TouchableHighlight>
@@ -300,6 +305,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  assignmentStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'stretch',
+  },
   whatToDoArea: {
     flex: 3,
     borderWidth: 1,
@@ -308,7 +318,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-
+  buttonText:{
+    fontSize:20
+  },
   dummy: {
 
   }
