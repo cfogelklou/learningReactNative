@@ -9,13 +9,20 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Image
 } from 'react-native';
+
+const mooseImg = require('../res/moose.jpg');
 
 class lysviksLeken extends Component {
   render() {
-    return (
+    return (        
       <View style={styles.container}>
+      <Image
+        style={styles.moosePic}
+        source={mooseImg}
+      />      
         <Text style={styles.welcome}>
           Welcome to React Native!  This app is cross platform!
         </Text>
@@ -36,6 +43,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  moosePic: {
   },
   welcome: {
     fontSize: 20,
