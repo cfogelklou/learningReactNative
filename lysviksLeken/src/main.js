@@ -190,8 +190,8 @@ class lysviksLeken extends Component {
       if (this.state.charadeCountdown > 0) {
         return (
           <View style={styles.assignmentStyle}>
-            <Text>{this.state.currentCharade}</Text>
-            <Text>...{Math.floor(this.state.charadeCountdown/1000)}...</Text>
+            <Text style={styles.assignmentTextStyle}>{this.state.currentCharade}</Text>
+            <Text style={styles.countdownTextStyle}>...{Math.floor(this.state.charadeCountdown/1000)}...</Text>
           </View>
           );
       }
@@ -317,6 +317,12 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  assignmentTextStyle:{
+    fontSize:20,
+  },
+  countdownTextStyle:{
+    fontSize:16,
   },
   buttonText:{
     fontSize:20
