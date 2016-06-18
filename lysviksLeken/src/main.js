@@ -152,9 +152,10 @@ class lysviksLeken extends Component {
     super(props);
     this.state = {
       charadeCountdown: 0,
-      isCharade: true,
-      currentAssignment: 'Press a button...',
-      currentCharade: ''
+      isCharade: false,
+      currentAssignment: '',
+      currentCharade: '',
+      lastTick: new Date()
     }
   }
 
@@ -187,19 +188,18 @@ class lysviksLeken extends Component {
   assignmentArea() {
     if (this.state.isCharade) {
       if (this.state.charadeCountdown > 0) {
-        return <Text>Charade: '{this.state.currentCharade}'... {this.state.charadeCountdown}</Text>
+        return <Text>{this.state.currentCharade}... {Math.floor(this.state.charadeCountdown/1000)}</Text>
       }
       else {
-        return <Text>Trycka på "charade" knappen för att visa charaden.</Text>
+        return <Text>Trycka på knappen för att visa charaden.</Text>
       }
     }
     else {
       return (<Text>{this.state.currentAssignment}</Text>);
     }
   }
-  //onPress={this.handleStartPress}
-  //const style = this.state.running ? styles.stopButton : styles.startButton;
-  //this.state.running ? styles.stopButton : styles.startButton;
+
+
   assignmentButton() {
     const style = styles.dummy;
     return <TouchableHighlight
@@ -207,14 +207,14 @@ class lysviksLeken extends Component {
       style={[styles.button, style]}
       onPress={this.onAssignmentPress.bind(this) }>
       <Text>
-        assignment
+        Ge Mig en Uppdrag...
       </Text>
     </TouchableHighlight>
   }
 
   onAssignmentPress() {
     console.log("On assignment press");
-    const assidx = 0;//Math.floor(Math.random() * assignments.length);
+    const assidx = Math.floor(Math.random() * assignments.length);
     const assignment = assignments[assidx];
     const isACharade = (0 == assignment.localeCompare(assignments[0]));
     const charadeIdx = Math.floor(Math.random() * charades.length);
@@ -229,24 +229,6 @@ class lysviksLeken extends Component {
     });
   }
 
-  charadeButton2() {
-    const style = styles.dummy;
-    if (this.state.isCharade) {
-      return (<TouchableHighlight
-        underlayColor="gray"
-        style={[styles.button, style]}
-        onPress={this.onCharadePress.bind(this) }>
-        >
-        <Text>
-          Show me the charade!
-        </Text>
-      </TouchableHighlight>);
-    }
-    else {
-      return '';
-    }
-  }
-
   charadeButton() {
     const style = styles.dummy;
     if (this.state.isCharade) {
@@ -255,7 +237,7 @@ class lysviksLeken extends Component {
         style={[styles.button, style]}
         onPress={this.onCharadePress.bind(this) }>
         <Text>
-          charade
+          Visa Charaden
         </Text>
       </TouchableHighlight>
     }
@@ -268,13 +250,17 @@ class lysviksLeken extends Component {
     console.log("On charade press");
     if (this.state.isCharade) {
       this.setState({
-        charadeCountdown: 10
+        charadeCountdown: 10000,
+        lastTick: new Date()
       });
       this.interval = setInterval(() => {
+        const currentTime = new Date();
+        const timeElapsed = currentTime - this.state.lastTick;        
         this.setState({
-          charadeCountdown: this.state.charadeCountdown - 1
+          charadeCountdown: this.state.charadeCountdown - timeElapsed,
+          lastTick: currentTime
         })
-      }, 1000);
+      }, 100);
     }
   }
 
@@ -296,9 +282,7 @@ const styles = StyleSheet.create({
   },
   moosePic: {
     flex: 1,
-    //padding: 10,
     alignSelf: 'center',
-    //opacity: 0.2
   },
   buttonWrapper: {
     flex: 2,
