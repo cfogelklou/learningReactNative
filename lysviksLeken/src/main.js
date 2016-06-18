@@ -262,19 +262,26 @@ class lysviksLeken extends Component {
 
   onCharadePress() {
     console.log("On charade press");
+    const countdownRunning = (this.state.charadeCountdown > 0);
     if (this.state.isCharade) {
       this.setState({
         charadeCountdown: 10000,
         lastTick: new Date()
       });
-      this.interval = setInterval(() => {
-        const currentTime = new Date();
-        const timeElapsed = currentTime - this.state.lastTick;
-        this.setState({
-          charadeCountdown: this.state.charadeCountdown - timeElapsed,
-          lastTick: currentTime
-        })
-      }, 100);
+      
+      if (!countdownRunning){
+        this.interval = setInterval(() => {
+          const currentTime = new Date();
+          const timeElapsed = currentTime - this.state.lastTick;
+          this.setState({
+            charadeCountdown: this.state.charadeCountdown - timeElapsed,
+            lastTick: currentTime
+          })
+          if (this.state.charadeCountdown <= 0){
+            clearInterval(this.interval);            
+          }
+        }, 100);
+      }
     }
   }
 
