@@ -16,7 +16,138 @@ import {
 
 const mooseImg = require('../res/moose.jpg');
 
+const assignments = [
+            "CHARADER",
+            "CHARADER",
+            "Tumme mäster",
+            "Sjung",
+            "Rimma",
+            "Rimma",
+            "Regel",
+            "Saga",
+            "Saga",
+            "Ämne",
+            "Ämne"
+];
+
+const charades = [
+            "Spela fotboll",
+            "Basket",
+            "Hockey",
+            "giraff äter löv",
+            "lejon",
+            "katt leker med garn",
+            "elefant rädd för en mus",
+            "ko",
+            "mus",
+            "gorilla",
+            "häst",
+            "kanin",
+            "apa",
+            "hund",
+            "fisk",
+            "haj",
+            "ambulance",
+            "Sparka tegelstenar",
+            "Solglasögon",
+            "Mygga",
+            "Sax",
+            "Klippa gräss",
+            "Klippa häcken",
+            "Stjärna",
+            "Rymdskepp",
+            "Träd",
+            "Flygplan",
+            "Svans",
+            "Basketboll",
+            "Toalett",
+            "Telefon",
+            "Burk",
+            "Trumma",
+            "Spela gitarr",
+            "Spela triangel",
+            "Sköldpadda",
+            "vingar",
+            "Docka",
+            "Fågel",
+            "Spindel",
+            "Barn",
+            "Gris",
+            "Krita",
+            "Ärm",
+            "Kanin",
+            "Kamera",
+            "Sten",
+            "Kyckling",
+            "Robot",
+            "Dryck",
+            "Ballong",
+            "Känguru",
+            "Tandborste",
+            "Dörr",
+            "Alligator",
+            "Dansa",
+            "Hoppa",
+            "Mygga",
+            "Polis",
+            "Nypa",
+            "Sova",
+            "Sova som Pippi",
+            "Titta på teve",
+            "Arg mamma",
+            "Åka skidor",
+            "Ramla från cyckeln",
+            "Cykla",
+            "Åka skridskor",
+            "Simma",
+            "Leka med iPad",
+            "Såga ner träd",
+            "Häst",
+            "Spela Matts' Hockey Spel",
+            "Spela video spel",
+            "Dansa runt julgran",
+            "Bebis",
+            "Groda",
+            "T-Rex",
+            "Äta en sur äpple",
+            "Tända ljus",
+            "Brandbil",
+            "Brandmän",
+            "Darth Vader",
+            "Yoda",
+            "Hulk",
+            "Boxning",
+            "Går med hunden",
+            "Duscha",
+            "Bada",
+            "Vattna blommorna",
+            "Måla",
+            "Demonstrant",
+            "Programmerar appar",
+            "Astronaut",
+            "Präst",
+            "Spela pianot",
+            "Paddla kanot",
+            "Trumpet",
+            "Fiol",
+            "Skateboard",
+            "Anka",
+            "Mata ankarna",
+            "Pirater",
+            "Grilla",
+            "Fiska",
+            "Morfar",
+            "Mormor",
+            "Kalle spelar fotboll",
+            "Hund",
+            "Flygande orm",
+            "Leopard",
+            "Flygande ekorre",
+            "Indominous Rex"  
+];
+
 class lysviksLeken extends Component {
+
   constructor(props) {
         super(props);
         this.state = {
@@ -60,15 +191,21 @@ class lysviksLeken extends Component {
     const style = styles.dummy; 
     return <TouchableHighlight
       underlayColor="gray"
-      style={[styles.button, style]}>
+      style={[styles.button, style]}
+      onPress={this.onAssignmentPress.bind(this)}>
       <Text>
         assignment
       </Text>
     </TouchableHighlight>
   }
 
+  onAssignmentPress(){
+    console.log("On assignment press")
+  }
+
   charadeButton() {
     const style = styles.dummy; 
+    if (this.state.isCharade){
     return <TouchableHighlight
       underlayColor="gray"
       style={[styles.button, style]}>
@@ -76,6 +213,10 @@ class lysviksLeken extends Component {
         charade
       </Text>
     </TouchableHighlight>
+    }
+    else {
+      return ;
+    }
   }
   
 }
